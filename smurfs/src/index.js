@@ -23,8 +23,6 @@ const theme={
     smurfBlue: '#62CEFD',
     darkBlue: '#0EADF2',
     lightBlue: '#C3ECFE',
-    yellow: "#FFD15B",
-    darkYellow: '#FFB804',
     lightYellow: '#FFEDC1',
     red: '#FF7B5B',
     darkRed: '#FF3404',

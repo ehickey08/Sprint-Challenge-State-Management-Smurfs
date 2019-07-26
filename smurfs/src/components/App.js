@@ -1,14 +1,16 @@
 import React from 'react'
-import Smurfs from './components/Smurfs'
-import AddSmurfForm from './components/AddSmurfForm'
+
+import Smurfs from './Smurfs'
+import AddSmurfForm from './AddSmurfForm'
 
 const App = () => {
     return (
-        <div>
+        <>
             <AddSmurfForm />
             <Smurfs />
-        </div>
+        </>
     )
 }
 
 export default App
+

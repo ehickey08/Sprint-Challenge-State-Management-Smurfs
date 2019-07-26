@@ -6,6 +6,7 @@ export const DELETED_SMURF="DELETED_SMURF"
 export const UPDATED_SMURF="UPDATED_SMURF"
 export const ADDED_SMURF="ADDED_SMURF"
 export const ATTEMPT_ERROR="ATTEMPT_ERROR"
+export const SET_UPDATING_SMURF="SET_UPDATING_SMURF"
 
 export const getSmurfs = (dispatch, url = 'http://localhost:3333/smurfs') => {
     dispatch({type: ATTEMPTING_UPDATE})
@@ -19,10 +20,10 @@ export const getSmurfs = (dispatch, url = 'http://localhost:3333/smurfs') => {
         })
 }
 
-export const addSmurf = (dispatch, url= 'http://localhost:3333/smurfs') => {
+export const addSmurf = (smurf, dispatch, url= 'http://localhost:3333/smurfs') => {
     dispatch({type: ATTEMPTING_UPDATE})
     axios
-        .post(`${url}`)
+        .post(`${url}`, smurf)
         .then(res => {
             dispatch({type: ADDED_SMURF, payload: res.data})
         })
@@ -31,10 +32,10 @@ export const addSmurf = (dispatch, url= 'http://localhost:3333/smurfs') => {
         })
 }
 
-export const updateSmurf = (id, dispatch, url= 'http://localhost:3333/smurfs') => {
+export const updateSmurf = (smurf, id, dispatch, url= 'http://localhost:3333/smurfs') => {
     dispatch({type: ATTEMPTING_UPDATE})
     axios
-        .put(`${url}/${id}`)
+        .put(`${url}/${id}`, smurf)
         .then(res => {
             dispatch({type: UPDATED_SMURF, payload: res.data})
         })
@@ -44,7 +45,6 @@ export const updateSmurf = (id, dispatch, url= 'http://localhost:3333/smurfs') =
 }
 
 export const deleteSmurf = (id, dispatch, url= ' http://localhost:3333/smurfs') => {
-    console.log(id)
     dispatch({type: ATTEMPTING_UPDATE})
     axios
         .delete(`${url}/${id}`)

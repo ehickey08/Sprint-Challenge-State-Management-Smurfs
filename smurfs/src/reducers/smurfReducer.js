@@ -3,12 +3,19 @@ import {ATTEMPTING_UPDATE,
     DELETED_SMURF,
     UPDATED_SMURF,
     ADDED_SMURF,
-    ATTEMPT_ERROR} from '../actions/actions'
+    ATTEMPT_ERROR,
+    SET_UPDATING_SMURF} from '../actions/actions'
 
 export const initialState = {
     smurfs: [],
     isUpdating: false,
-    error: ''
+    error: '',
+    activeSmurf: {
+        name: '',
+        height: '',
+        age: '',
+        id: ''
+    }
 }
 
 export default (state, {type, payload}) => {
@@ -48,6 +55,11 @@ export default (state, {type, payload}) => {
                 ...state,
                 isUpdating: false,
                 error: payload
+            }
+        case SET_UPDATING_SMURF:
+            return {
+                ...state,
+                activeSmurf: payload
             }
         default:
             return state

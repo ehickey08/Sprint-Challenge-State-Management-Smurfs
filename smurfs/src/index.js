@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./components/App";
+import App from "./App";
+import StateProvider from './components/StateProvider'
+import reducer, { initialState } from './reducers/smurfReducer'
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+    <StateProvider initialState={initialState} reducer={reducer}>
+        <App />
+    </StateProvider>, 
+document.getElementById("root"));

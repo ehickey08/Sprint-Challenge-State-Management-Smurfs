@@ -1,16 +1,27 @@
-import React, { Component } from "react";
-import "./App.css";
-class App extends Component {
-  render() {
+import React from 'react'
+import styled from 'styled-components'
+
+import Smurfs from './Smurfs'
+import AddSmurfForm from './AddSmurfForm'
+
+const App = () => {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
+        <>
+            <Header>Welcome to Your Smurf Village!</Header>
+            <AddSmurfForm />
+            <Smurfs />
+        </>
+    )
 }
 
-export default App;
+export default App
+
+const Header = styled.h1`
+    width: 500px;
+    margin: 20px auto;
+    font-size: 5rem;
+    color: ${({theme}) => theme.smurfBlue};
+    font-family: ${({theme}) => theme.headerFont};
+    font-weight: 800;
+    text-decoration: underline;
+`

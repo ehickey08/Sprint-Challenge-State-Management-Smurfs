@@ -7,7 +7,7 @@ const Smurfs = () => {
 
     useEffect(() => {
         getSmurfs(dispatch)
-    }, [dispatch, smurfs]);
+    }, [dispatch]);
 
     return (
         <div>
